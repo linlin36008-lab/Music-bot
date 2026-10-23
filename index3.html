@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Music Website</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  h1 {
+    margin-bottom: 40px;
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+  .play-btn {
+    background: linear-gradient(135deg, #1db954, #1ed760);
+    border: none;
+    color: #000;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 18px 50px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(29, 185, 84, 0.5);
+  }
+  .play-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px rgba(29, 185, 84, 0.9);
+  }
+  .play-btn:active {
+    transform: scale(0.97);
+  }
+</style>
+</head>
+<body>
+
+  <h1>🎵 သီချင်းနားထောင်ရန် 🎵</h1>
+  <button class="play-btn" id="playBtn" onclick="playMusic()">▶ နှိပ်ပါ</button>
+
+  <!-- ဒီနေရာမှာ သင့်သီချင်း file နာမည် ထည့်ပါ -->
+  <audio id="myAudio" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    သင့် browser က audio မပံ့ပိုးပါဘူး။
+  </audio>
+
+<script>
+  function playMusic() {
+    const audio = document.getElementById('myAudio');
+    const btn = document.getElementById('playBtn');
+
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = '⏸ ရပ်ရန်';
+    } else {
+      audio.pause();
+      btn.textContent = '▶ နှိပ်ပါ';
+    }
+  }
+</script>
+
+</body>
+</html>
